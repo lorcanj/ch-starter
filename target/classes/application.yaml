@@ -1,0 +1,21 @@
+server:
+  port: 80
+spring:
+  application:
+    name: "Companies House Docs App"
+  h2:
+    console:
+      enabled: true
+      path: "/h2c"
+  datasource:
+    url: "jdbc:h2:file:./h2/prod;DB_CLOSE_ON_EXIT=FALSE"
+    driverClassName: "org.h2.Driver"
+    username: "sa"
+    password: ~
+  jpa:
+    database-platform: "org.hibernate.dialect.H2Dialect"
+    hibernate:
+      ddl-auto: update
+companieshouse:
+  docsapp:
+    test: false
