@@ -24,12 +24,10 @@ public class CompanyController {
     @PostMapping("/companies")
     public ResponseEntity<Company> createCompany(@RequestBody(required = true) Company company) {
         if (company.getRegistrationNumber() != null || company.getIncorporatedOn() != null){
-            System.out.println("HIT HERE");
             return ResponseEntity.notFound().build();
         }
-        System.out.println("SUCCESSFUL REGISTRATION");
+
         companyRegistry.addCompany(company);
-        System.out.println(company.getRegistrationNumber());
         return ResponseEntity.ok(company);
     }
 
@@ -37,10 +35,8 @@ public class CompanyController {
     public ResponseEntity<Company> getCompany(@PathVariable(required = true) String companyNumber) {
         Company foundCompany = companyRegistry.getCompany(companyNumber);
 
-        System.out.println(foundCompany);
         if (foundCompany == null)
             return ResponseEntity.notFound().build();
-        System.out.println("LORCAN HERE!!");
         return ResponseEntity.ok(foundCompany);
     }
 
