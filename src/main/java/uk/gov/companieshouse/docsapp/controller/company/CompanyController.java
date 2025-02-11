@@ -78,6 +78,8 @@ public class CompanyController {
             return ResponseEntity.notFound().build();
 
         companyRegistry.deleteCompany(companyNumber);
+        System.out.println("test for CI/CD");
         return ResponseEntity.noContent().build();
+
     }
 }
